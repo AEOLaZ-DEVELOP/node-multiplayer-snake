@@ -13,7 +13,7 @@ node ('kops'){
         app = docker.build("aeolaz/snake")
     }
     stage('Post-to-dockerhub') {
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_creds') {
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
             app.push("latest")
         }
     }
